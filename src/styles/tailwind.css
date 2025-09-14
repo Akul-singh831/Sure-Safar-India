@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --color-background: #fafafa; /* gray-50 */
+    --color-foreground: #1f2937; /* gray-800 */
+    --color-card: #ffffff; /* white */
+    --color-card-foreground: #1f2937; /* gray-800 */
+    --color-popover: #ffffff; /* white */
+    --color-popover-foreground: #1f2937; /* gray-800 */
+    --color-muted: #f3f4f6; /* gray-100 */
+    --color-muted-foreground: #6b7280; /* gray-500 */
+    
+    /* Primary Brand Colors */
+    --color-primary: #1e40af; /* blue-800 */
+    --color-primary-foreground: #ffffff; /* white */
+    --color-secondary: #f59e0b; /* amber-500 */
+    --color-secondary-foreground: #1f2937; /* gray-800 */
+    
+    /* Accent Colors */
+    --color-accent: #10b981; /* emerald-500 */
+    --color-accent-foreground: #ffffff; /* white */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #ffffff; /* white */
+    --color-warning: #d97706; /* amber-600 */
+    --color-warning-foreground: #ffffff; /* white */
+    --color-error: #dc2626; /* red-600 */
+    --color-error-foreground: #ffffff; /* white */
+    --color-destructive: #dc2626; /* red-600 */
+    --color-destructive-foreground: #ffffff; /* white */
+    
+    /* UI Elements */
+    --color-border: #e5e7eb; /* gray-200 */
+    --color-input: #ffffff; /* white */
+    --color-ring: #1e40af; /* blue-800 */
+    
+    /* Trust Builder */
+    --color-trust: #6366f1; /* indigo-500 */
+    --color-trust-foreground: #ffffff; /* white */
+    
+    /* Text Colors */
+    --color-text-primary: #1f2937; /* gray-800 */
+    --color-text-secondary: #6b7280; /* gray-500 */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Animation Classes */
+  .animate-pulse-soft {
+    animation: pulse-soft 2s infinite;
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Glassmorphism Effect */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Cultural Pattern Overlay */
+  .cultural-pattern {
+    background-image: radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
+  }
+  
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .transition-major {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Shadow System */
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-medium {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-strong {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Gradient Backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-trust) 100%);
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  }
+  
+  .gradient-cultural {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+  }
+}
+
+@layer utilities {
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Spacing Utilities - Golden Ratio Based */
+  .space-golden-xs {
+    margin: 8px;
+  }
+  
+  .space-golden-sm {
+    margin: 13px;
+  }
+  
+  .space-golden-md {
+    margin: 21px;
+  }
+  
+  .space-golden-lg {
+    margin: 34px;
+  }
+  
+  .space-golden-xl {
+    margin: 55px;
+  }
+  
+  /* Interactive States */
+  .hover-lift {
+    @apply transition-smooth hover:transform hover:scale-105 hover:shadow-medium;
+  }
+.hover-glow  {
+    @apply transition-smooth hover:shadow-lg;
+  }
+  
+  /* Focus States */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+  
+  /* Accessibility: Reusable text shadow to improve contrast over complex/image/gradient backgrounds */
+  .text-shadow-md {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.35);
+  }
+  
+  /* Optional subtle stronger variant if ever needed */
+  .text-shadow-lg {
+    text-shadow: 0 2px 2px rgba(0,0,0,0.55), 0 4px 8px rgba(0,0,0,0.4);
+  }
+  
+  /* Utility to create a darkening overlay behind text when patterns reduce readability */
+  .contrast-overlay-dark {
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+  }
+  
+  /* Map container utilities */
+  .map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensures map stays below other absolute elements */
+  }
+  
+  /* Map overlay controls - applies to elements that should appear above map */
+  .map-overlay {
+    z-index: 1; /* Ensures overlay elements stay above the map */
+    position: relative; /* Only needed for non-absolute elements */
+  }
+}
