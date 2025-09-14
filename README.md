@@ -151,12 +151,13 @@ This project is configured for easy deployment to Vercel. Follow these steps to 
    - Click "Import Project" and select "Import Git Repository"
    - Select your repository and click "Import"
 3. Configure the following environment variables during setup:
-   - `VITE_GEMINI_API_KEY`: Your Google Gemini AI API key
+   - Go to Project Settings > Environment Variables
+   - Add a new variable named `VITE_GEMINI_API_KEY` with the value `AIzaSyCsRlCpuzpBjlKmo_JPf1f8WRrgBixYBcw` (or your current API key)
    - Add any other required API keys as needed
 4. Ensure the "Build and Output Settings" are configured properly:
    - Build Command: `pnpm run build`
    - Output Directory: `build` (not the default `dist`)
-   - Or use the provided `vercel.json` configuration file
+   - The provided `vercel.json` file already specifies these settings
 5. Click "Deploy" and wait for the deployment to complete
 6. Your site will be available at `https://safeguard-india-[username].vercel.app`
 
